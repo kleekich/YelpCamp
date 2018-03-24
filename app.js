@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 
-app.user(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs")
 
 app.get("/", function(req, res){
@@ -17,7 +17,7 @@ app.get("/campgrounds", function(req, res){
     ]
     
     res.render("campgrounds", {campgrounds: campgrounds});
-})
+});
 
 app.post("/campgrounds", function(req, res){
     res.send("You Hit the post route!");
@@ -25,8 +25,11 @@ app.post("/campgrounds", function(req, res){
    //redirect back to campgroudns 
 });
 
+app.get("/campgrounds/new", function(req, res){
+    res.render("new.ejs");
+});
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The YelpCamp Server Has Started!");
-})
+});
