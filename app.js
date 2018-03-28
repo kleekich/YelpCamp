@@ -36,6 +36,7 @@ app.get("/", function(req, res){
     res.render("landing");
 });
 
+
 app.get("/campgrounds", function(req, res){
     //Get all campgrounds from DB
     Campground.find({}, function(err, campgrounds){
@@ -47,6 +48,7 @@ app.get("/campgrounds", function(req, res){
     })
 });
 
+//CREATE - add new campaground to DB
 app.post("/campgrounds", function(req, res){
 
    //get data from form and add to campgrounds array
@@ -66,9 +68,14 @@ app.post("/campgrounds", function(req, res){
    
 });
 
+//NEW = show form to create new campground
 app.get("/campgrounds/new", function(req, res){
     res.render("new.ejs");
 });
+
+app.get("/campgrounds/:id", function(req, res){
+    res.send("a;slgjag;lkj");
+})
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
