@@ -38,14 +38,14 @@ app.get("/", function(req, res){
     res.render("landing");
 });
 
-
+//INDEX - show all campgrounds
 app.get("/campgrounds", function(req, res){
     //Get all campgrounds from DB
     Campground.find({}, function(err, campgrounds){
         if(err){
             console.log(err);
         }else{
-            res.render("campgrounds", {campgrounds: campgrounds});
+            res.render("index", {campgrounds: campgrounds});
         }
     })
 });
@@ -77,7 +77,7 @@ app.get("/campgrounds/new", function(req, res){
 //SHOW - shows more info about selected campground
 app.get("/campgrounds/:id", function(req, res){
     //find campground with provided ID
-    
+    req.params.id
     //render show template 
     res.render("show");
 })
