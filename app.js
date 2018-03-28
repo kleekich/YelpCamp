@@ -12,7 +12,8 @@ app.set("view engine", "ejs")
 
 var campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String,
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
@@ -20,7 +21,8 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 // Campground.create(
 //     {
 //         name: "Salmon Creek",
-//         image: "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c85daa025ee04c951b6ac12fe3ba031a&auto=format&fit=crop&w=800&q=60"
+//         image: "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c85daa025ee04c951b6ac12fe3ba031a&auto=format&fit=crop&w=800&q=60",
+//         description: "This is a beautiful place for camp!"
 //     }, function(err, campground){
 //         if(err){
 //             console.log(err);
@@ -68,13 +70,16 @@ app.post("/campgrounds", function(req, res){
    
 });
 
-//NEW = show form to create new campground
+//NEW - show form to create new campground
 app.get("/campgrounds/new", function(req, res){
-    res.render("new.ejs");
+    res.render("new");
 });
-
+//SHOW - shows more info about selected campground
 app.get("/campgrounds/:id", function(req, res){
-    res.send("a;slgjag;lkj");
+    //find campground with provided ID
+    
+    //render show template 
+    res.render("show");
 })
 
 
