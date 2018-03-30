@@ -72,7 +72,7 @@ app.get("/campgrounds/:id", function(req, res){
 
 //===========================
 // COMMENTS ROUTES 
-//===========================
+//==========================
 app.get("/campgrounds/:id/comments/new", function(req, res){
     
 })
