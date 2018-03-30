@@ -1,61 +1,64 @@
 var mongoose = require("mongoose");
 var Campground = require("./models/campground");
-var Comment = require("./models/comment");
+var Comment   = require("./models/comment");
+ 
 var data = [
     {
-        name: "Cloud's Rest",
-        image: "https://images.unsplash.com/photo-1515408320194-59643816c5b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fcbebfe204ad7e04d558d7e0cbc0d2eb&auto=format&fit=crop&w=800&q=60",
-        description: "Best campground ever"
+        name: "Cloud's Rest", 
+        image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     },
     {
-        name: "Fire's Campground",
-        image: "https://images.unsplash.com/photo-1502814828814-f57efb0dc974?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b85b41ac63fecc3ef432c48f0aaea1fa&auto=format&fit=crop&w=800&q=60",
-        description: "Smores night"
+        name: "Desert Mesa", 
+        image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     },
     {
-        name: "Austrailian Camp",
-        image: "https://images.unsplash.com/photo-1470246973918-29a93221c455?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cfe9dd8ec2366865f02eabd3a8c91d3f&auto=format&fit=crop&w=800&q=60",
-        description: "How I enjoy my nightlife"
+        name: "Canyon Floor", 
+        image: "https://farm1.staticflickr.com/189/493046463_841a18169e.jpg",
+        description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     }
 ]
-
+ 
 function seedDB(){
-    //Remove all campgrounds
-    Campground.remove({}, function(err){
+   //Remove all campgrounds
+   Campground.remove({}, function(err){
         if(err){
             console.log(err);
-        }else{
-            console.log("removed campgrounds!");
+        }
+        console.log("removed campgrounds!");
+        Comment.remove({}, function(err) {
+            if(err){
+                console.log(err);
+            }
+            console.log("removed comments!");
+             //add a few campgrounds
             data.forEach(function(seed){
                 Campground.create(seed, function(err, campground){
                     if(err){
-                        console.log(err);
-                    }else{
+                        console.log(err)
+                    } else {
                         console.log("added a campground");
+                        //create a comment
                         Comment.create(
                             {
-                                text: "This place is awesome!",
+                                text: "This place is great, but I wish there was internet",
                                 author: "Homer"
                             }, function(err, comment){
                                 if(err){
                                     console.log(err);
-                                }else{
+                                } else {
                                     campground.comments.push(comment);
                                     campground.save();
-                                    console.log("Create a new comment!");
+                                    console.log("Created new comment");
                                 }
-                            })
+                            });
                     }
-                })
-            }); 
-        }
-    });
-    
-    
-    
-    //add a few campgrounds
-    
+                });
+            });
+        });
+    }); 
+    //add a few comments
 }
-
-
+ 
 module.exports = seedDB;

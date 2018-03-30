@@ -14,22 +14,6 @@ app.set("view engine", "ejs")
 
 //Schema Setup
 
-// Campground.create(
-//     {
-//         name: "Salmon Creek",
-//         image: "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c85daa025ee04c951b6ac12fe3ba031a&auto=format&fit=crop&w=800&q=60",
-//         description: "This is a beautiful place for camp!"
-//     }, function(err, campground){
-//         if(err){
-//             console.log(err);
-//         }else{
-//             console.log("Newly Created Campground: ");
-//             console.log(campground);
-//         }
-//     });
-
-
-
 app.get("/", function(req, res){
     res.render("landing");
 });
@@ -74,16 +58,24 @@ app.get("/campgrounds/new", function(req, res){
 //SHOW - shows more info about selected campground
 app.get("/campgrounds/:id", function(req, res){
     //find campground with provided ID
-    Campground.findById(req.params.id, function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
         if(err){
             console.log(err);
         } else{
+            console.log("=======");
+            console.log(foundCampground);
+            console.log("=======");
             res.render("show", {campground: foundCampground});
         }
     })
-    
 })
 
+//===========================
+// COMMENTS ROUTES
+//===========================
+app.get("/campgrounds/:id/comments/new", function(req, res){
+    
+})
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The YelpCamp Server Has Started!");
