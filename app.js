@@ -3,9 +3,12 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var seedDB = require("./seeds");
+var passport = require("passport");
+var LocalStrategy = require("passport-local");
 //Models
 var Campground  = require("./models/campground");
 var Comment = require("./models/comment");
+var User = require("./models/user");
 
 
 mongoose.connect("mongodb://localhost/yelp_camp");
