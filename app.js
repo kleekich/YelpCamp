@@ -7,10 +7,14 @@ var seedDB = require("./seeds");
 var Campground  = require("./models/campground");
 var Comment = require("./models/comment");
 
-seedDB();
+
 mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended: true}));
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
+//Tell express to serve public directory
+//__dirname is shortcut 
+app.use(express.static(__dirname + "/public"));
+seedDB();
 
 //Schema Setup
 
