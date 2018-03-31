@@ -12,6 +12,7 @@ Yelp Camp Description
 * Javascript
 * HTML5
 * CSS3
+* ejs
 * [Bootstrap](http://getbootstrap.com/2.3.2/) - UI framework
 * [Mongoose](http://mongoosejs.com/) - Used for mongoDB object modeling
 * [MongoDB](https://www.mongodb.com/) - Database
