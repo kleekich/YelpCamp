@@ -48,6 +48,7 @@ Yelp Camp is a web application
 * [body-parser](https://www.npmjs.com/package/body-parser) - Paring middleware for incoming reqst boy
 * [express-sanitizer](https://www.npmjs.com/package/express-sanitizer) - Express middleware for sanitizing
 * [method-override](https://www.npmjs.com/package/method-override) - Supporting PUT/DELETE HTTP verbs
+* [connect-flash](https://www.npmjs.com/package/connect-flash) - messaging
 
 ## Authors
 
