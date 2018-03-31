@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var flash = require("connect-flash-plus");
 var seedDB = require("./seeds");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
@@ -23,6 +24,7 @@ app.set("view engine", "ejs");
 //__dirname is shortcut 
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 //seedDB();
 
 //PASSPORT CONFIGURATION
