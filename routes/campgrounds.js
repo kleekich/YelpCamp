@@ -76,7 +76,26 @@ router.get("/campgrounds/:id/edit", function(req, res){
 })
 
 //UPDATE Campground Route
-router.get
+router.put("/campgrounds/:id", function(req, res){
+    //find amd update correct campground
+    
+    Campground.findByIdAndUpdate(
+        req.params.id,
+        { 
+            name: req.body.name,
+            image: req.body.image,
+            description: req.body.description
+        },
+        function(err, updatedCampground){
+            if(err){
+                console.log("updated failed");
+                res.redirect("/campgrounds");
+            }else{
+                res.redirect("/campgrounds/" + req.params.id);
+            }
+        }
+    );
+});
 
 //Middleware
 function isLoggedIn(req, res, next){
