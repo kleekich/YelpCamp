@@ -20,7 +20,7 @@ router.post("/campgrounds", isLoggedIn, function(req, res){
    //get data from form and add to campgrounds array
    var name = req.body.name;
    var image = req.body.image;
-   var desc = req.body.descriptioçn;
+   var desc = req.body.description;
    var author = {
        id: req.user._id,
        username: req.user.username
@@ -64,7 +64,15 @@ router.get("/campgrounds/:id", function(req, res){
 })
 //EDIT Campground Route
 router.get("/campgrounds/:id/edit", function(req, res){
-    res.render("campgrounds/edit");
+    Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+            res.redirect("/campgrounds");
+        }else{
+            res.render("campgrounds/edit", {campground: foundCampground});
+        }
+    })
+    
 })
 
 //UPDATE Campground Route
