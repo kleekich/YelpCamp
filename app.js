@@ -41,9 +41,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-//provide currentUser to all route
+//Provide currentUser, message to all route
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
+    res.locals.message = req.flash("error");
     next();
 });
 
