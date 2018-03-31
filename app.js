@@ -11,6 +11,10 @@ var Comment = require("./models/comment");
 var User = require("./models/user");
 
 
+var commentRoutes = require("./routes/comments"),
+    campgroundRoutes = require("./routes/campgrounds"),
+    indexRoutes = require("./routes/index");
+
 mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -37,7 +41,11 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     next();
-})
+});
+
+app.use(indexRoutes);
+app.use(campgroundRoutes);
+app.use(commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The YelpCamp Server Has Started!");
