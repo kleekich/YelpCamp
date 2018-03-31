@@ -157,7 +157,11 @@ app.get("/login", function(req, res){
     res.render("login");
 })
 //Handling login logic
-app.post("/login", function(req, res){
+app.post("/login", passport.authenticate("local",
+{
+    successRedirect: "/campgrounds",
+    failureRedirect: "/login"
+}), function(req, res){
     
 })
 
