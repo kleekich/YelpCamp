@@ -21,7 +21,7 @@ app.set("view engine", "ejs");
 //Tell express to serve public directory
 //__dirname is shortcut 
 app.use(express.static(__dirname + "/public"));
-seedDB();
+//seedDB();
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
