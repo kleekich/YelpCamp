@@ -1,10 +1,21 @@
 # Yelp Camp
 
-Yelp Camp Description
+Yelp Camp is a web application 
+
+* Basic RESTful ROUTES
+* Database Association
+* Authentication
+* Deployment
 
 ## Getting Started
 
-   [Visit Camp Here]()
+* User can sign up and log in by clicking **Sign Up** and **Log In** button on navigation bar.
+* User can make a campground by clicking **Add a New Campground** button
+* User can only edit or delete campground which he/she created
+* User can make comment on a campground
+* User can only edit or delete the comment he/she made
+
+   [Visit Yelp Camp Here]()
 
 
 ## Built with
@@ -12,11 +23,11 @@ Yelp Camp Description
 * Javascript
 * HTML5
 * CSS3
-* ejs
+* [ejs](http://ejs.co/) - Embeded HTML template language with Javascript
 * [Bootstrap](http://getbootstrap.com/2.3.2/) - UI framework
 * [Mongoose](http://mongoosejs.com/) - Used for mongoDB object modeling
 * [MongoDB](https://www.mongodb.com/) - Database
-* [Express](https://expressjs.com/) - Node.js web framework
+* [ExpressJS](https://expressjs.com/) - Node.js web framework
 * [Node.js](https://nodejs.org/en/) - Server-side framework
 * [Heroku](https://devcenter.heroku.com/categories/reference) - Deployment and managing application
 
@@ -25,17 +36,17 @@ Yelp Camp Description
 
 
 ### Authentication with
-* passport 
-* passport-local 
-* passport-local-mongoose 
-* express-session
+* [Passport.js](http://www.passportjs.org/) - Authentication middleware
+* [passport-local](https://www.npmjs.com/package/passport-local) - Passport strategy for authenticating
+* [passport-local-mongoose](https://www.npmjs.com/package/passport-local-mongoose) - Mongoose plugin
+* [express-session](https://www.npmjs.com/package/express-session)
 
-### Deploywith
+### Deploy with
 * [Heroku]() - Deployment and managing application
 
 ### Other Packages used
-* [body-parser](https://www.npmjs.com/package/body-parser) - paring middleware for incoming reqst boy
-* [express-sanitizer](https://www.npmjs.com/package/express-sanitizer) - Express Middleware for Sanitizing
+* [body-parser](https://www.npmjs.com/package/body-parser) - Paring middleware for incoming reqst boy
+* [express-sanitizer](https://www.npmjs.com/package/express-sanitizer) - Express middleware for sanitizing
 * [method-override](https://www.npmjs.com/package/method-override) - Supporting PUT/DELETE HTTP verbs
 
 ## Authors
