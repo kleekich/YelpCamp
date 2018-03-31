@@ -32,6 +32,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+//provide currentUser to all route
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+})
+
 //Schema Setup
 app.get("/", function(req, res){
     res.render("landing");
@@ -44,7 +51,7 @@ app.get("/campgrounds", function(req, res){
         if(err){
             console.log(err);
         }else{
-            res.render("campgrounds/index", {campgrounds: campgrounds});
+            res.render("campgrounds/index", {campgrounds: campgrounds, currentUser: req.user});
         }
     })
 });
