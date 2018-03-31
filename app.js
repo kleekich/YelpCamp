@@ -5,6 +5,7 @@ var mongoose = require("mongoose");
 var seedDB = require("./seeds");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
+var methodOverride = require("method-override");
 //Models
 var Campground  = require("./models/campground");
 var Comment = require("./models/comment");
@@ -15,12 +16,13 @@ var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://localhost/yelp_camp_v10");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 //Tell express to serve public directory
 //__dirname is shortcut 
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 //seedDB();
 
 //PASSPORT CONFIGURATION

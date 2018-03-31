@@ -62,6 +62,14 @@ router.get("/campgrounds/:id", function(req, res){
         }
     })
 })
+//EDIT Campground Route
+router.get("/campgrounds/:id/edit", function(req, res){
+    res.render("campgrounds/edit");
+})
+
+//UPDATE Campground Route
+router.get
+
 //Middleware
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
