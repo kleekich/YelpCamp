@@ -151,6 +151,15 @@ app.post("/register", function(req, res){
     })
 })
 
+//show login form
+
+app.get("/login", function(req, res){
+    res.render("login");
+})
+//Handling login logic
+app.post("/login", function(req, res){
+    
+})
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The YelpCamp Server Has Started!");
