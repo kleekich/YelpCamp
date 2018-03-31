@@ -58,7 +58,7 @@ router.get("/campgrounds/:id", function(req, res){
             console.log("=======");
             console.log(foundCampground);
             console.log("=======");
-            res.render("campgrounds/show", {campground: foundCampground});
+            res.render("campgrounds/show", {campground: foundCampground, currentUser: req.user});
         }
     })
 })
