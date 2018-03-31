@@ -70,7 +70,7 @@ router.put("/campgrounds/:id/comments/:comment_id", checkCommentOwnership, funct
     })
 })
 
-router.delete("/campgrounds/:id/comments/:comment_id", checkCommentOwnership function(req, res){
+router.delete("/campgrounds/:id/comments/:comment_id", checkCommentOwnership, function(req, res){
     Comment.findByIdAndRemove(req.params.comment_id, function(err, removedComment){
         if(err){
             res.redirect("back");
