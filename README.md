@@ -49,7 +49,7 @@ Yelp Camp is a web application
 * [express-sanitizer](https://www.npmjs.com/package/express-sanitizer) - Express middleware for sanitizing
 * [method-override](https://www.npmjs.com/package/method-override) - Supporting PUT/DELETE HTTP verbs
 * [connect-flash](https://www.npmjs.com/package/connect-flash) - messaging
-
+* [modernizr](https://modernizr.com/)
 ## Authors
 
 * **Kangsik Lee** 
