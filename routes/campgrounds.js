@@ -72,6 +72,7 @@ router.put("/campgrounds/:id", middleware.checkCampgroundOwnership, function(req
         req.params.id,
         { 
             name: req.body.name,
+            price: req.body.price,
             image: req.body.image,
             description: req.body.description
         },
