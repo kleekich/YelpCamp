@@ -1,6 +1,6 @@
 # YelpCamp
 ***YelpCamp is a basecamp for camping lovers! You can share your camping story with image, introduce your favorite campground, give any tip and information about campground for the community! Be a camper and enjoy your camping!***
-
+[Visit YelpCamp Here](https://yelpcamp-kangsik-lee.herokuapp.com/)
 
 This is a full-stack web application built with several cutting-edge technologies including Javascript, HTML5, CSS3, Node.js, Express, MongoDB, and etc.
 This app demonstrates fundamentals of full-stack web application development such as:
@@ -20,7 +20,7 @@ This app demonstrates fundamentals of full-stack web application development suc
 * Camper can introduce campground by create a new campground
 * Camper can make comments on campgrounds
 
-   [Visit YelpCamp Here](https://yelpcamp-kangsik-lee.herokuapp.com/)
+   
 
 
 ## Languages/Tools used
